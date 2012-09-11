@@ -16,20 +16,20 @@ TH=zeros(NX,NY,N_TH)+1;
 % ********* User Input ********
 
 % Start with a linear, unstable buoyancy profile
-for i=1:NX
-for j=1:NY
-  TH(i,j,:)=1-GYF(j);
-end
-end
+% for i=1:NX
+% for j=1:NY
+  % TH(i,j,:)=1-GYF(j);
+% end
+% end
 
 % Example: For internal waves, create a stable buoyancy profile
-%for i=1:NX
-%for j=1:NY
-%  TH(i,j,:)=GYF(j);
+for i=1:NX
+for j=1:NY
+ TH(i,j,:)=GYF(j);
 % And, optionally, add an initial perturbation
-%  TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
-%end
-%end
+ TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
+end
+end
 
 
 % Add a random perturbation to the velocity
