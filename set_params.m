@@ -3,8 +3,8 @@
 % ********* User Input **********
 
 % Physical paramters:
-Re=5000.0;			% Reynolds number
-LX=1;				% x - Domain size
+Re=1000.0;			% Reynolds number
+LX=4;				% x - Domain size
 LY=1;				% y - Domain size
 
 % In some applications, we don't want to allow velocity in/out of the 2D plane
@@ -13,7 +13,7 @@ SOLVE_U3=0;
 
 % Number of gridpoints 
 % Note - Since there are 2 ghost cells in each direction, there will be (NX-2)*(NY-2) computational gridpoints
-NX=100;
+NX=200;
 NY=100;
 
 % The number of active/passive scalars
