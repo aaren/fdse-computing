@@ -12,11 +12,11 @@
 %FTH(ii,jj,1)=FTH(ii,jj,1)-U0*((TH(ii,jp,1)-TH(ii,jj,1))./DY(ii,jp)+(TH(ii,jj,1)-TH(ii,jm,1))./DY(ii,jj))/2;
 
 % ****** For internal wave generation *****
-%amp=0.1; % Internal wave amplitude
-%omega=1/sqrt(2);   % Forcing frequency (N=2*pi)
-%width=0.01; % Size of forcing region (Gaussian width)
-%for i=2:NX-1 
-%for j=3:NY-1 % Loop over GY points within the physical domain
-%  F2(i,j)=F2(i,j)+amp*exp(-((GXF(i)-LX/2).^2+(GY(j)-LY/2).^2)/(2*width^2))*sin(omega*TIME);
-%end
-%end
+amp=0.1; % Internal wave amplitude
+omega=1/sqrt(2);   % Forcing frequency (N=2*pi)
+width=0.01; % Size of forcing region (Gaussian width)
+for i=2:NX-1 
+for j=3:NY-1 % Loop over GY points within the physical domain
+ F2(i,j)=F2(i,j)+amp*exp(-((GXF(i)-LX/2).^2+(GY(j)-LY/2).^2)/(2*width^2))*sin(omega*TIME);
+end
+end
