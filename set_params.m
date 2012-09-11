@@ -78,8 +78,8 @@ DELTA_T=0.1;		% When using a fixed timestep (VARIABLE_DT=0), this is the timeste
 CFL=1.0;			% When using a variable timestep (VARIABLE_DT=1), the timestep is calculated from this CFL number
 
 % Saving and display intervals
-N_DISP_FLOW=1;		% Specify how often (in timesteps) to call display_flow
-N_SAVE_FLOW=10;	% Specify how often (in timesteps) to save flow fields
+N_DISP_FLOW=50;		% Specify how often (in timesteps) to call display_flow
+N_SAVE_FLOW=1;	% Specify how often (in timesteps) to save flow fields
 N_SAVE_STATS=5;		% Specify how often (in timesteps) to calculate and save flow statistics
 
 % MATLAB parameters for solving the implicit linear systems
