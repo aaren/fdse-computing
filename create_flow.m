@@ -27,7 +27,7 @@ for i=1:NX
 for j=1:NY
  TH(i,j,:)=GYF(j);
 % And, optionally, add an initial perturbation
- TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
+ % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
 end
 end
 
