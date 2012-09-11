@@ -54,8 +54,8 @@ P_BC_YMAX=1;	P_BC_YMAX_C1(1:NX)=0;
 
 % Boundary conditions for each scalar
 for n=1:N_TH
-TH_BC_YMIN(n)=1;	TH_BC_YMIN_C1(1:NX,n)=-1; 
-TH_BC_YMAX(n)=1;	TH_BC_YMAX_C1(1:NX,n)=-1; 
+TH_BC_YMIN(n)=1;	TH_BC_YMIN_C1(1:NX,n)=1; 
+TH_BC_YMAX(n)=1;	TH_BC_YMAX_C1(1:NX,n)=1; 
 end
 
 % ******* End of User Input ********
