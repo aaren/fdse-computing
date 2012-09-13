@@ -22,12 +22,18 @@ vel=(S0/h)*tanh((y-LY/2)/(h));
 % Create an x-wavenumber vector to explore solutions
 kx=linspace(2*pi/LX,2*pi*20/LX,100);
 
-clear growth
-for k=1:length(kx)
-  [sigma(:,k),lambda_w(:,:,k),lambda_b(:,:,k)]=SSF(y',vel',buoy',kx(k),0,nu,kappa,[0 0],[0 0],0);
+NU = logspace(-4, 0, 25);
+
+for i=1:length(NU)
+    nu = NU(i)
+    clear growth
+    for k=1:length(kx)
+    [sigma(:,k),lambda_w(:,:,k),lambda_b(:,:,k)]=SSF(y',vel',buoy',kx(k),0,nu,kappa,[0 0],[0 0],0);
+    end
+    max_sigma(i) = max(real(sigma(1,:)))
 end
 
-plot(kx,real(sigma(1,:)),'b-');
+plot(NU,max_sigma,'b-');
 set(gca,'FontName','Times','FontSize',14);
-xlabel('k_x');
+xlabel('nu');
 ylabel('Growth rate');
