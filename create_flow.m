@@ -23,19 +23,35 @@ TH=zeros(NX,NY,N_TH)+1;
 % end
 
 % Example: For internal waves, create a stable buoyancy profile
-for i=1:NX
-for j=1:NY
-    b=1;
- TH(i,j,:)= b / 2 * tanh((GXF(j) - LX / 8) / (LX / 50));
+% for i=1:NX
+% for j=1:NY
+    % b=1;
+ % TH(i,j,:)= b / 2 * tanh((GXF(j) - LX / 8) / (LX / 50));
 % And, optionally, add an initial perturbation
  % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
-end
-end
+% end
+% end
 
+% Create tanh buoyancy and velocity profiles
+h=1/10; % Shear layer width
+% NY=100; % The number of gridpoints
+% dy=LY/NY; %The grid spacing - must be evenly spaced
+% nu=1/5000; % Kinematic viscosity (or 1/Re)
+% kappa=nu; % Diffusivity
+S0=10; % Maximum shear
+N0=sqrt(10); % Maximum buoyancy frequency
+
+% Hyperbolic tangent velocity and buoyancy profiles
+for i=1:NX
+    for j=1:NY
+        TH(i,j,:) = (N0^2/h) * tanh((GYF(j) - LY / 2) / (h));
+        U1(i,j,:) = (S0/h) * tanh((GYF(j) - LY / 2) / (h));
+    end
+end
 
 % Add a random perturbation to the velocity
-% U1=U1+0.001*(rand(NX,NY)-0.5);
-% U2=U2+0.001*(rand(NX,NY)-0.5);
+U1=U1+0.001*(rand(NX,NY)-0.5);
+U2=U2+0.001*(rand(NX,NY)-0.5);
 
 
 % ********* End of User input *********

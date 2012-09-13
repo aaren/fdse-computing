@@ -17,10 +17,10 @@ end
 %	GRID_TYPE=1: High resolution at both ends
 %	GRID_TYPE=2: High resolution at the center of the domain
 GRID_TYPE_X=1;
-GRID_TYPE_Y=1;
+GRID_TYPE_Y=2;
 % Specify the grid stretching parameter, CS.  A value of zero indicates an unstretched grid
 CSX=0.0;
-CSY=0.0;
+CSY=1.0;
 % ****** End of User input *******
 
 % If we are using an unstretched grid, add a very small factor to avoid division by zero

@@ -3,7 +3,7 @@
 % ********* User Input **********
 
 % Physical paramters:
-Re=1000.0;			% Reynolds number
+Re=500.0;			% Reynolds number
 LX=4;				% x - Domain size
 LY=1;				% y - Domain size
 
@@ -13,7 +13,7 @@ SOLVE_U3=0;
 
 % Number of gridpoints 
 % Note - Since there are 2 ghost cells in each direction, there will be (NX-2)*(NY-2) computational gridpoints
-NX=200;
+NX=100;
 NY=100;
 
 % The number of active/passive scalars
