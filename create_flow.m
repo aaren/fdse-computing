@@ -26,7 +26,7 @@ TH=zeros(NX,NY,N_TH)+1;
 for i=1:NX
 for j=1:NY
     b=1;
- TH(i,j,:)= b / 2 * tanh((GXF(j) - LX / 8) / (LX / 50));
+ TH(i,j,:)= b / 2 * tanh((GXF(i) - LX / 8) / (LX / 50));
 % And, optionally, add an initial perturbation
  % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
 end
