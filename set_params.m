@@ -36,8 +36,8 @@ end
 % Specify the direction of the gravitational unit vector 
 % (Do for each scalar, but these are probably the same!) 
 for n=1:N_TH
-  GRAV_X(n)=0;
-  GRAV_Y(n)=-1;
+  GRAV_X(n)=-1;
+  GRAV_Y(n)=-2;
   GRAV_Z(n)=0;
 end
 
