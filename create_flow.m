@@ -22,13 +22,13 @@ TH=zeros(NX,NY,N_TH)+1;
 % end
 % end
 
-% Example: For internal waves, create a stable buoyancy profile
+% Create a tilted buoyancy profile to go with the tilted gravity unit vector
 for i=1:NX
-for j=1:NY
- TH(i,j,:)=GYF(j);
-% And, optionally, add an initial perturbation
- TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
-end
+    for j=1:NY
+        TH(i,j,:) = GRAV_Y(1) * GYF(j) - GRAV_X(1) * GXF(i);
+        % And, optionally, add an initial perturbation
+        % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
+    end
 end
 
 

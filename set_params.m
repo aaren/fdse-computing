@@ -35,10 +35,15 @@ end
 
 % Specify the direction of the gravitational unit vector 
 % (Do for each scalar, but these are probably the same!) 
+% create a vector, which will be normalised.
+g_x = -1
+g_y = -2 
+g_z = 0
+g_n = sqrt(g_x^2 + g_y^2 + g_z^2)
 for n=1:N_TH
-  GRAV_X(n)=-1;
-  GRAV_Y(n)=-2;
-  GRAV_Z(n)=0;
+  GRAV_X(n)=g_x/g_n;
+  GRAV_Y(n)=g_y/g_n;
+  GRAV_Z(n)=g_z/g_n;
 end
 
 % Optionally, specify background horizontal gradients for each scalar
