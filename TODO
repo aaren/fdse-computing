@@ -1,0 +1,29 @@
+   Internal waves behave somewhat counter-intuitively when reflecting off rigid
+   walls. Because the angle formed between the wavenumber vector and the
+   horizontal direction depends on the wave frequency through the dispersion
+   relation, incident and reflected internal waves do not necessarily form the
+   same angle with a boundary. In fact, it is possible for reflected waves to
+   be parallel to a reflecting surface. This latter case is called a critical
+   reflection. We can’t get critical reflections from vertical or horizontal
+   walls, but it is possible to have critical reflections at sloping
+   boundaries.
+
+   Since the geometry of Diablo is rectangular, we can’t easily add a sloping
+   boundary inside the domain. Instead, we can simulate internal waves
+   reflecting from sloping boundaries by tilting the entire domain. 
+   
+   To do this, you will need to 
+    -change the direction in which gravity points (change GRAV
+    X, etc. in set params.m), 
+    -change the density profile to have flat isopycnals
+    in the rotated reference frame, and 
+    -change the boundary conditions to be
+    consistent with the initial conditions. 
+   
+   The paper by Slinn and Riley5, referenced below might be helpful in
+   visualizing the setup. 
+   
+   Adjust the frequency of the internal wave forcing to generate critical
+   reflections from the now sloping boundaries. What happens to the wave energy
+   in this case?
+
