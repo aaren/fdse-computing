@@ -17,8 +17,11 @@
     X, etc. in set params.m), 
     -change the density profile to have flat isopycnals
     in the rotated reference frame, and 
+    ***
     -change the boundary conditions to be
     consistent with the initial conditions. 
+    ***
+    HARD!
    
    The paper by Slinn and Riley5, referenced below might be helpful in
    visualizing the setup. 
