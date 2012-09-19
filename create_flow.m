@@ -25,7 +25,7 @@ TH=zeros(NX,NY,N_TH)+1;
 % Create a tilted buoyancy profile to go with the tilted gravity unit vector
 for i=1:NX
     for j=1:NY
-        TH(i,j,:) = (GRAV_Y(1) * LY - GRAV_X(1) * LX) - (GRAV_Y(1) * GYF(j) - GRAV_X(1) * GXF(i));
+        TH(i,j,:) = (1/sqrt(LX^2+LY^2)) * (GRAV_Y(1) * LY - GRAV_X(1) * LX) - (GRAV_Y(1) * GYF(j) - GRAV_X(1) * GXF(i));
         % And, optionally, add an initial perturbation
         % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
     end

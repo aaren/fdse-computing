@@ -42,20 +42,20 @@ for n=1:N_TH
 end
 
 % Boundaries at the edges of the y-coordiantes
-U1_BC_YMIN=1;	U1_BC_YMIN_C1(1:NX)=0; 
-U2_BC_YMIN=0;	U2_BC_YMIN_C1(1:NX)=0;
-U3_BC_YMIN=1;	U3_BC_YMIN_C1(1:NX)=0;   
-P_BC_YMIN=1;	P_BC_YMIN_C1(1:NX)=0; 
+U1_BC_YMIN=3;	U1_BC_YMIN_C1(1:NX)=0; 
+U2_BC_YMIN=3;	U2_BC_YMIN_C1(1:NX)=0;
+U3_BC_YMIN=3;	U3_BC_YMIN_C1(1:NX)=0;   
+P_BC_YMIN=3;	P_BC_YMIN_C1(1:NX)=0; 
 
-U1_BC_YMAX=1;	U1_BC_YMAX_C1(1:NX)=0;
-U2_BC_YMAX=0;	U2_BC_YMAX_C1(1:NX)=0; 
-U3_BC_YMAX=1;	U3_BC_YMAX_C1(1:NX)=0;
-P_BC_YMAX=1;	P_BC_YMAX_C1(1:NX)=0; 
+U1_BC_YMAX=3;	U1_BC_YMAX_C1(1:NX)=0;
+U2_BC_YMAX=3;	U2_BC_YMAX_C1(1:NX)=0; 
+U3_BC_YMAX=3;	U3_BC_YMAX_C1(1:NX)=0;
+P_BC_YMAX=3;	P_BC_YMAX_C1(1:NX)=0; 
 
 % Boundary conditions for each scalar
 for n=1:N_TH
-TH_BC_YMIN(n)=1;	TH_BC_YMIN_C1(1:NX,n)=-1; 
-TH_BC_YMAX(n)=1;	TH_BC_YMAX_C1(1:NX,n)=-1; 
+TH_BC_YMIN(n)=3;	TH_BC_YMIN_C1(1:NX,n)=-1; 
+TH_BC_YMAX(n)=3;	TH_BC_YMAX_C1(1:NX,n)=-1; 
 end
 
 % ******* End of User Input ********
