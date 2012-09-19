@@ -6,6 +6,7 @@ TEMP1=0; % It generally works to create preconditioner matrices using DELTA_T=0
 %next line
 %TEMP1=(1/Re)*H_BAR(1)/2;
 
+setup.type='ilutp';
 
 ri=zeros((NX-2)*(NY-2)*5,1);
 ci=zeros((NX-2)*(NY-2)*5,1);
@@ -42,7 +43,7 @@ vi(4:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jj2)./DYF(ii2,jj2),(NX-2)*(NY-2
 vi(5:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jp2)./DYF(ii2,jj2),(NX-2)*(NY-2),1);
 MAT=sparse(ri,ci,vi,NX*NY,NX*NY);
 n=1; rk_apply_bc_th;  % Apply boundary conditions (for one of the scalars)
-[L_TH,U_TH]=ilu(MAT);
+[L_TH,U_TH]=ilu(MAT,setup);
 end
 
 vi(1:5:(NX-2)*(NY-2)*5,1)=reshape(1-TEMP1*(-1./DX(ii2,jj2)./DXF(ii2,jj2)-1./DX(ii2,jj2)./DXF(im2,jj2) ...
@@ -53,7 +54,7 @@ vi(4:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jj2)./DYF(ii2,jj2),(NX-2)*(NY-2
 vi(5:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jp2)./DYF(ii2,jj2),(NX-2)*(NY-2),1);
 MAT=sparse(ri,ci,vi,NX*NY,NX*NY);
 rk_apply_bc_u1;
-[L_U1,U_U1]=ilu(MAT);
+[L_U1,U_U1]=ilu(MAT,setup);
 
 
 vi(1:5:(NX-2)*(NY-2)*5,1)=reshape(1-TEMP1*(-1./DX(ii2,jj2)./DXF(ii2,jj2)-1./DX(ip2,jj2)./DXF(ii2,jj2) ...
@@ -64,7 +65,7 @@ vi(4:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jj2)./DYF(ii2,jm2),(NX-2)*(NY-2
 vi(5:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jj2)./DYF(ii2,jj2),(NX-2)*(NY-2),1);
 MAT=sparse(ri,ci,vi,NX*NY,NX*NY);
 rk_apply_bc_u2;
-[L_U2,U_U2]=ilu(MAT);
+[L_U2,U_U2]=ilu(MAT,setup);
 
 vi(1:5:(NX-2)*(NY-2)*5,1)=reshape(1-TEMP1*(-1./DX(ii2,jj2)./DXF(ii2,jj2)-1./DX(ip2,jj2)./DXF(ii2,jj2) ...
                           -1./DY(ii2,jp2)./DYF(ii2,jj2)-1./DY(ii2,jj2)./DYF(ii2,jj2)),(NX-2)*(NY-2),1);
@@ -74,7 +75,7 @@ vi(4:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jj2)./DYF(ii2,jj2),(NX-2)*(NY-2
 vi(5:5:(NX-2)*(NY-2)*5,1)=reshape(-TEMP1./DY(ii2,jp2)./DYF(ii2,jj2),(NX-2)*(NY-2),1);
 MAT=sparse(ri,ci,vi,NX*NY,NX*NY);
 rk_apply_bc_u3;
-[L_U3,U_U3]=ilu(MAT);
+[L_U3,U_U3]=ilu(MAT,setup);
 
 disp('Performing LU decomposition for pressure Poisson solve...');
 vi(1:5:(NX-2)*(NY-2)*5,1)=reshape(-1./DX(ii2,jj2)./DXF(ii2,jj2)-1./DX(ip2,jj2)./DXF(ii2,jj2) ...
