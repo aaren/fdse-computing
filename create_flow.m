@@ -22,47 +22,65 @@ TH=zeros(NX,NY,N_TH)+1;
 % end
 % end
 
-% set the buoyancy difference
-b=1;
+% set the buoyancy difference for the stratification
+b=4;
 
+% set the lock width as fraction of lock length
+w = 1/16;
+% calculate lock width in integers
+wnx = int16(NX*w);
 
+% Initialise lock fluid
 
-% apply stratification
+% set buoyancy of lock fluid compared to stratifcation difference (lb=1) 
+lb=0.5;
+
 for i=1:NX
     for j=1:NY
-        TH(i,j,1) = TH(i,j,1) + b / 2 * (1 - GYF(j));
+    TH(i,j,1)= lb*b / 2 * (tanh(-(GXF(i) - LX * w) / (LX / 50))+1);
+    % And, optionally, add an initial perturbation
+    % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
+
     end
 end
 
-
-
-% set the lock width as fraction of lock length
-lw = 1/16;
-lh=1;
-% calculate lock width and height in integers
-wnx = int16(NX*lw);
-hny = int16(NY*lh);
+% apply stratification
+for i=wnx:NX
+    for j=1:NY
+        TH(i,j,1) = b  * (GYF(j));
+    end
+end
 
 % set dye
 for i=wnx:NX
-    for j=hny:NY
+    for j=1:NY
         TH(i,j,2)=0;
     end
 end
 
-% Initialise lock fluid
-TH(1:wnx,1:hny,1)=b / 2 ;
+
+% for non tanh lock fluid:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % set the lock width as fraction of lock length
+% lw = 1/16;
+% lh=1;
+% % calculate lock width and height in integers
+% wnx = int16(NX*lw);
+% hny = int16(NY*lh);
 % 
-% 
-% % Initialise lock fluid
-% for i=1:NX
-%     for j=1:NY
-%     TH(i,j,1)= b / 2 * tanh((GXF(i) - LX * w) / (LX / 50));
-%     % And, optionally, add an initial perturbation
-%     % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
-% 
+% % set dye
+% for i=wnx:NX
+%     for j=hny:NY
+%         TH(i,j,2)=0;
 %     end
 % end
+
+% % Initialise lock fluid
+% TH(1:wnx,1:hny,1)=b / 2 ;
+% % 
+% 
+
 
 
 
