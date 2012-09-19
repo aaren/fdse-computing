@@ -29,19 +29,29 @@ w = 1/16;
 % Initialise lock fluid
 for i=1:NX
     for j=1:NY
-    TH(i,j,:)= b / 2 * tanh((GXF(i) - LX * w) / (LX / 50));
+    TH(i,j,1)= b / 2 * tanh((GXF(i) - LX * w) / (LX / 50));
     % And, optionally, add an initial perturbation
     % TH(i,j,:)=TH(i,j,:)+0.2*exp(-(GXF(i)-LX/2)^2/0.2^2-(GYF(j)-LY/2)^2/0.2^2);
+
     end
 end
+
 
 % Add linear perturbation to rest of fluid
 % calculate lock width in integers
 wnx = int16(NX*w);
+
+% set dye
+for i=wnx:NX
+    for j=1:NY
+        TH(i,j,2)=0;
+    end
+end
+
 % apply stratification
 for i=wnx:NX
     for j=1:NY
-        TH(i,j,:) = TH(i,j,:) + b / 2 * (1 - GYF(j));
+        TH(i,j,1) = TH(i,j,1) + b / 2 * (1 - GYF(j));
     end
 end
 

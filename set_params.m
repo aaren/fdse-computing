@@ -17,19 +17,28 @@ NX=200;
 NY=100;
 
 % The number of active/passive scalars
-N_TH=1;			
+% With this set to 1 we just have the density field. If we want some
+% passive tracers (dye), set it to 2 and then set RI(2)=0 below. We could
+% also set the gravity equal to zero for the scalar, e.g. GRAV_Y(2)=0 below,
+% but this is unnecessary as RI premultiplies the gravity in the mom eqn anyway.
+N_TH=2;			
 
 % Set the following parameters for each of the scalars
 
-% The buoyancy term, added to the RHS of the momentum equation is RI(n)*(GRAV_X,GRAV_Y,GRAV_Z)*TH(n)
-% (GRAV_X,GRAV_Y,GRAV_Z) is intended to be a unit vector, giving the direction of the gravitational acceleration
-% and RI(n) controls the amplitude of the buoyant force.
-% Using this convention RI(n) should be positive if TH(n) is density and negative if TH(n) is buoyancy
+% The buoyancy term, added to the RHS of the momentum equation is
+% RI(n)*(GRAV_X,GRAV_Y,GRAV_Z)*TH(n) (GRAV_X,GRAV_Y,GRAV_Z) is intended to be a
+% unit vector, giving the direction of the gravitational acceleration and RI(n)
+% controls the amplitude of the buoyant force.  Using this convention RI(n)
+% should be positive if TH(n) is density and negative if TH(n) is buoyancy
 
 for n=1:N_TH
   if (n==1)
     PR(n)=1.0;		% Prandtl (or Schmidt) number
     RI(n)=-1.0;		% Richardson number (normalized g/rho0)
+  end
+  if (n==2)
+    PR(n)=1.0;		% Prandtl (or Schmidt) number
+    RI(n)=0;		% Richardson number (normalized g/rho0)
   end
 end 
 
