@@ -6,7 +6,11 @@ clf;
 % ******** User Input *********
 
 % Change the following lines to plot whatever you like during the simulation
+% Density
 surf(GXF(ii),GYF(jj),zeros(length(ii),length(jj))',TH(ii,jj,1)','EdgeColor','none'),view(0,90); shading interp; 
+% TODO: plot the dye
+hold on
+contour(GXF(ii),GYF(jj),TH(ii,jj,2)'); 
 set(gca,'FontName','Times','FontSize',14);
 xlabel('X');
 ylabel('Y');
