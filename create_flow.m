@@ -25,7 +25,7 @@ TH=zeros(NX,NY,N_TH)+1;
 % Example: For internal waves, create a stable buoyancy profile
 b=1;
 % set the lock width as fraction of lock length
-w = 1/16;
+w = 1/200;
 % Initialise lock fluid
 for i=1:NX
     for j=1:NY
@@ -47,13 +47,15 @@ for i=wnx:NX
         TH(i,j,2)=0;
     end
 end
+% Multiply dye
+TH(:,:,2)=1000*TH(:,:,2);
 
-% apply stratification
-for i=wnx:NX
-    for j=1:NY
-        TH(i,j,1) = TH(i,j,1) + b / 2 * (1 - GYF(j));
-    end
-end
+% % apply stratification
+% for i=wnx:NX
+%     for j=1:NY
+%         TH(i,j,1) = TH(i,j,1) + b / 2 * (1 - GYF(j));
+%     end
+% end
 
 
 % Add a random perturbation to the velocity

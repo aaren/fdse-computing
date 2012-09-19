@@ -20,7 +20,8 @@ set(gca,'FontName','Times','FontSize',14);
 
 % TODO: plot the dye
 hold on
-[C,h] = contour(GXF(ii),GYF(jj),TH(ii,jj,2)',[0.1, 0.5, 0.8],'-k','LineWidth',2); 
+[C,h] = contour(GXF(ii),GYF(jj),TH(ii,jj,2)',[0.01,0.05,0.1, 0.5,1],'-k','LineWidth',2); 
+
 text_handle = clabel(C,h);
 set(text_handle,'FontSize',12)
 %,'BackgroundColor',[1 1 .6],'Edgecolor',[.7 .7 .7])
