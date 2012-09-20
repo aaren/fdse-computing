@@ -33,23 +33,27 @@ for n=1:N_TH
   end
 end 
 
+% Specify angle of rotation for the domain (to look at slopes)
+alpha = 30
 % Specify the direction of the gravitational unit vector 
 % (Do for each scalar, but these are probably the same!) 
 % create a vector, which will be normalised.
-g_x = -1
-g_y = -2 
+g = 1
+g_x = -g * sind(alpha)
+g_y = -g * cosd(alpha) 
 g_z = 0
-g_n = sqrt(g_x^2 + g_y^2 + g_z^2)
 for n=1:N_TH
-  GRAV_X(n)=g_x/g_n;
-  GRAV_Y(n)=g_y/g_n;
-  GRAV_Z(n)=g_z/g_n;
+  GRAV_X(n) = g_x;
+  GRAV_Y(n) = g_y;
+  GRAV_Z(n) = g_z;
 end
 
 % Optionally, specify background horizontal gradients for each scalar
+% specify total magnitude
+drho = 1
 for n=1:N_TH
-  DTHDX(n)=0;
-  DTHDY(n)=0;
+  DTHDX(n)= -drho * sin(alpha);
+  DTHDY(n)= drho * cos(alpha);
   DTHDZ(n)=0;
 end
 
