@@ -13,7 +13,7 @@ set(gca,'FontName','Times','FontSize',14);
 xlabel('X');
 ylabel('Y');
 title('Buoyancy');
-caxis([0 1]);
+caxis([0 b]);
 axis([GX(ii(1)) GX(ii(end)) GYF(jj(1)) GYF(jj(end))]);
 colorbar
 set(gca,'FontName','Times','FontSize',14);

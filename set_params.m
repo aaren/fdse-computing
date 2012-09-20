@@ -3,8 +3,8 @@
 % ********* User Input **********
 
 % Physical paramters:
-Re=1000.0;			% Reynolds number
-LX=4;				% x - Domain size
+Re=10000.0;			% Reynolds number
+LX=32;				% x - Domain size
 LY=1;				% y - Domain size
 
 % In some applications, we don't want to allow velocity in/out of the 2D plane
