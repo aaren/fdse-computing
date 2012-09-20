@@ -38,9 +38,9 @@ alpha = 30;
 % Specify the direction of the gravitational unit vector 
 % (Do for each scalar, but these are probably the same!) 
 % create a vector, which will be normalised.
-g = 1
+g = 1;
 g_x = -g * sind(alpha);
-g_y = -g * cosd(alpha) ;
+g_y = -g * cosd(alpha);
 g_z = 0;
 for n=1:N_TH
   GRAV_X(n) = g_x;
@@ -52,8 +52,8 @@ end
 % specify total magnitude
 drho = 1;
 for n=1:N_TH
-  DTHDX(n)= -drho * sin(alpha);
-  DTHDY(n)= drho * cos(alpha);
+  DTHDX(n)= -drho * sind(alpha);
+  DTHDY(n)= drho * cosd(alpha);
   DTHDZ(n)=0;
 end
 
